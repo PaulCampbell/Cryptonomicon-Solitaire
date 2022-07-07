@@ -46,6 +46,15 @@ class CardDeck {
     this.cards = firstCut.concat(secondCut).concat(lastCut);
   }
 
+  performCountCut(count) {
+    const newOrder = [...this.cards];
+    const bottomCard = newOrder[newOrder.length - 1];
+    const firstCut = newOrder.slice(0, count);
+    const secondCut = newOrder.slice(count + 1);
+
+    this.cards = secondCut.concat(firstCut).concat(bottomCard);
+  }
+
   _freshDeck() {
     return this.suits
       .reduce((acc, suit) => {
@@ -87,13 +96,13 @@ class CardDeck {
   _getCardValue(suit, number) {
     switch (suit) {
       case "clubs":
-        return number;
+        return Number(number);
       case "diamonds":
-        return number + 13;
+        return Number(number) + 13;
       case "hearts":
-        return number + 26;
+        return Number(number) + 26;
       case "spades":
-        return number + 39;
+        return Number(number) + 39;
     }
   }
 }

@@ -45,7 +45,7 @@ describe("Solitaire", () => {
   const cypherText = "OSKJJ JGTMW";
   const deck = new CardDeck({});
   deck.shuffle();
-  const key = deck.cards;
+  const key = deck.cards.map((c) => c.name);
 
   describe("encrypt", () => {
     it("should encrypt the plain text using a the key", () => {
