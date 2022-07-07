@@ -149,6 +149,6 @@ in the same order (with the same _key_), and they can decrypt the thing
     ]
   const cypherText = "GCCYYHZYHWPULXYEH"
 
-  const plainText = Solitaire.encrypt({ cypherText, key: startDeck });
+  const plainText = Solitaire.decrypt({ cypherText, key: startDeck });
   //  "ATOPSECRETMESSAGE"
 ```
