@@ -41,10 +41,67 @@ describe("Card deck", () => {
 });
 
 describe("Solitaire", () => {
-  const plainText = "DO NOT USE PC";
-  const cypherText = "OSKJJ JGTMW";
-  const deck = new CardDeck({});
-  deck.shuffle();
+  const plainText = "DONOTUSEPC";
+  const cypherText = "JXBXZXPLSF";
+  const deck = new CardDeck({
+    cardNamesInOrder: [
+      "11 diamonds",
+      "6 spades",
+      "7 hearts",
+      "13 clubs",
+      "12 clubs",
+      "9 spades",
+      "12 hearts",
+      "13 hearts",
+      "5 spades",
+      "10 spades",
+      "3 hearts",
+      "13 diamonds",
+      "8 diamonds",
+      "1 clubs",
+      "6 diamonds",
+      "6 clubs",
+      "10 hearts",
+      "8 spades",
+      "7 diamonds",
+      "5 hearts",
+      "2 clubs",
+      "6 hearts",
+      "3 spades",
+      "2 spades",
+      "b joker",
+      "7 spades",
+      "1 diamonds",
+      "11 hearts",
+      "4 hearts",
+      "4 diamonds",
+      "4 spades",
+      "11 spades",
+      "1 spades",
+      "12 diamonds",
+      "5 clubs",
+      "2 diamonds",
+      "12 spades",
+      "9 diamonds",
+      "11 clubs",
+      "4 clubs",
+      "10 clubs",
+      "8 hearts",
+      "a joker",
+      "8 clubs",
+      "13 spades",
+      "10 diamonds",
+      "5 diamonds",
+      "2 hearts",
+      "3 diamonds",
+      "9 hearts",
+      "1 hearts",
+      "9 clubs",
+      "7 clubs",
+      "3 clubs",
+    ],
+  });
+
   const key = deck.cards.map((c) => c.name);
 
   describe("encrypt", () => {
@@ -65,8 +122,8 @@ describe("Solitaire", () => {
       badDeck.shuffle();
 
       const decrypted = Solitaire.decrypt({
-        cypherText: "Hello World",
-        key: badDeck.cards,
+        cypherText,
+        key: badDeck.cards.map((c) => c.name),
       });
 
       notEqual(decrypted, plainText);
